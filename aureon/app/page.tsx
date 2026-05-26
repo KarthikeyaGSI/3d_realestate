@@ -14,7 +14,6 @@ import SignatureAmenitiesSection from "@/components/SignatureAmenitiesSection";
 import ServicesSection from "@/components/ServicesSection";
 import PrivateAccessSection from "@/components/PrivateAccessSection";
 import FinalCTA from "@/components/FinalCTA";
-import LayoutSection from "@/components/LayoutSection";
 
 export default function Home() {
   const mainRef = useRef<HTMLElement>(null);
@@ -68,7 +67,6 @@ export default function Home() {
         <ManifestoSection />
         <AnthologySection />
         <CraftSection />
-        <LayoutSection />
         <SignatureAmenitiesSection />
         <ServicesSection />
         <PrivateAccessSection />

@@ -3,23 +3,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import SectionLabel from "./ui/SectionLabel";
-import { Canvas } from "@react-three/fiber";
-import { useGLTF, Environment, PresentationControls } from "@react-three/drei";
-
-function Model() {
-  // Try to load model, fail gracefully if not found
-  try {
-    const { scene } = useGLTF("/models/Meshy_AI_Cliffside_Sky_Villa_0516212452_texture.glb");
-    return <primitive object={scene} scale={0.05} position={[0, -2, 0]} />;
-  } catch (e) {
-    return (
-      <mesh>
-        <boxGeometry args={[2, 2, 2]} />
-        <meshStandardMaterial color="#C8A96A" wireframe />
-      </mesh>
-    );
-  }
-}
 
 export default function CraftSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -57,19 +40,15 @@ export default function CraftSection() {
         <SectionLabel index="02" title="Craft" className="!text-[var(--ink)] [&>div]:bg-[var(--ink)] [&>span:first-child]:text-[var(--bronze)]" />
       </div>
 
-      <div className="w-1/2 h-full absolute right-0 top-0 hidden md:block">
-        <Canvas camera={{ position: [5, 2, 5], fov: 45 }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1.5} color="#F5EFE4" />
-          <fog attach="fog" args={["#FFF8EE", 10, 30]} />
-          <PresentationControls global rotation={[0, 0.3, 0]} polar={[-0.4, 0.2]} azimuth={[-1, 0.75]} config={{ mass: 2, tension: 400 }} snap={{ mass: 4, tension: 400 }}>
-            <Model />
-          </PresentationControls>
-          <Environment preset="city" />
-        </Canvas>
+      <div className="w-1/2 h-full absolute right-0 top-0 hidden md:flex items-center justify-center p-24">
+        <div 
+          className="w-full h-full bg-cover bg-center grayscale opacity-80"
+          style={{ backgroundImage: "url('/images/projects/villa-01.webp')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--surface)] via-transparent to-transparent" />
       </div>
 
-      <div className="w-full md:w-1/2 pl-12 md:pl-24 h-full flex flex-col justify-center">
+      <div className="w-full md:w-1/2 pl-12 md:pl-24 h-full flex flex-col justify-center relative z-10">
         <div ref={textContainerRef} className="relative h-[200px]">
           <div className="absolute inset-0">
             <h3 className="text-4xl md:text-6xl font-editorial text-[var(--ink)] mb-6">Material Resonance</h3>
