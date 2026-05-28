@@ -1,0 +1,13 @@
+{
+  "name": "3d-realestate-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd aureon && npm install && npm run build && cd .. && cp -R aureon/.next ./.next && cp -R aureon/public ./public"
+  },
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  }
+}
