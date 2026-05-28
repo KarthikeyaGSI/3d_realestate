@@ -29,9 +29,9 @@
   --space-24: 12rem;
 
   /* Typography */
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Inter", system-ui, -apple-system, sans-serif;
-  --font-editorial: "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-sans-next), "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-sans-next), "Inter", system-ui, -apple-system, sans-serif;
+  --font-editorial: var(--font-editorial-next), "Cormorant Garamond", Georgia, serif;
 
   /* Transitions */
   --ease-aureon: cubic-bezier(0.25, 0.1, 0.25, 1);

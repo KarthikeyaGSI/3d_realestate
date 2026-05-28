@@ -1,5 +1,21 @@
 import type { Metadata } from "next";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans-next",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-editorial-next",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "AUREON — Private Architectural Worlds",
@@ -43,27 +59,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Fonts: Inter + Cormorant Garamond */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-          rel="stylesheet"
-        />
-        {/* Preload hero video */}
-        <link
-          rel="preload"
-          as="video"
-          href="/videos/HeroVideo.mp4"
-          type="video/mp4"
-        />
-      </head>
-      <body className="antialiased">{children}</body>
+      <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
+
